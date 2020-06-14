@@ -4,45 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/colorBgMy2020SMS">
+
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Drag and Drop Example"
-        android:id="@+id/textView"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="41dp"
         android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="My 2020 SMS"
+        android:textColor="#fff"
         android:textSize="30dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tutorials Point "
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
+    <Button
+        android:id="@+id/btnSendSMS"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="63dp"
+        android:background="@drawable/button_bg_round"
+        android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:textSize="30dp"
-        android:textColor="#ff14be3c" />
+        android:text="send S.O.S"
+        android:textColor="#fff"
+        android:textSize="50dp" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/abc"
-        android:layout_marginTop="48dp"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="252dp"
+        android:layout_height="78dp"
+        android:layout_below="@+id/btnSendSMS"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="emergency text"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffdede"
+        android:textSize="20dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Compose SMS"
-        android:id="@+id/button"
-        android:layout_below="@+id/imageView"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_alignEnd="@+id/textView2"
-        android:layout_marginTop="54dp"
-        android:layout_alignLeft="@+id/imageView"
-        android:layout_alignStart="@+id/imageView" />
+        android:id="@+id/btnMessageSetting"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginRight="90dp"
+        android:background="@drawable/ic_message_setting"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/btnInbox"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/ic_message_inbox"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="50dp" />
+
 </RelativeLayout>
