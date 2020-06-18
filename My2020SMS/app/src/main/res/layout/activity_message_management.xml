@@ -8,61 +8,106 @@
     android:background="@color/colorBgMy2020SMS">
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sending SMS Example"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="41dp"
         android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Draft Manegement"
+        android:textColor="#fff"
         android:textSize="30dp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tutorials point "
-        android:textColor="#ff87ff09"
-        android:textSize="30dp"
-        android:layout_below="@+id/textView1"
-        android:layout_alignRight="@+id/imageButton"
-        android:layout_alignEnd="@+id/imageButton" />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_toStartOf="@+id/recipientNumber"
+        android:layout_toLeftOf="@+id/recipientNumber"
+        android:src="@drawable/ic_contact_phone" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
-        android:src="@drawable/abc"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:hint="Enter Phone Number"
-        android:phoneNumber="true"
-        android:textColorHint="@color/abc_primary_text_material_dark"
-        android:layout_below="@+id/imageButton"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:textColorHint="@color/abc_primary_text_material_dark"
-        android:layout_alignRight="@+id/imageButton"
-        android:layout_alignEnd="@+id/imageButton"
-        android:hint="Enter SMS" />
-
+    <!-- Icon Select Contact START-->
     <Button
+        android:id="@+id/btnContactPhone"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_toStartOf="@+id/recipientNumber"
+        android:layout_toLeftOf="@+id/recipientNumber"
+        android:background="@drawable/ic_contact_button"/>
+    <!-- Icon Select Contact END-->
+
+    <!-- Recipient Number START-->
+    <EditText
+        android:id="@+id/recipientNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send Sms"
-        android:id="@+id/btnSendSMS"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="20dp"
+        android:hint="Recipient Number"
+        android:inputType="phone"
+        android:textColor="#fff"
+        android:textColorHint="#9A9A9A"
+        android:backgroundTint="@android:color/holo_blue_bright"/>
+    <!-- Recipient Number END-->
+
+    <!-- Text Body START-->
+    <EditText
+        android:id="@+id/textDraft"
+        android:layout_width="350dp"
+        android:textColor="#fff"
+        android:layout_height="200dp"
+        android:layout_below="@+id/recipientNumber"
+        android:layout_centerHorizontal="true"
+        android:hint="Enter Text to save"
+        android:textColorHint="#9A9A9A"
+        android:gravity="start"
+        android:backgroundTint="@android:color/holo_blue_bright"/>
+    <!-- Text Body END-->
+
+    <!-- Save Button START-->
+    <Button
+        android:id="@+id/btnSendSMS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDraft"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/txtbtnSaveDraft"
+        android:backgroundTint="@android:color/holo_blue_light" />
+    <!-- Save Button END-->
+
+    <!-- Delete Button START-->
+    <Button
+        android:id="@+id/btnDeleteDraft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDraft"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:text="Delete Draft"
+        android:backgroundTint="@android:color/holo_red_light"/>
+    <!-- Delete Button START-->
+
+    <TextView
+        android:id="@+id/uaitext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
+        android:gravity="center"
+        android:text="Universitas Al Azahar Indonesia @2020"
+        android:textColor="#fff"
+        android:textSize="15dp" />
+
+
 </RelativeLayout>

@@ -27,8 +27,8 @@ public class MessageManagement extends AppCompatActivity {
         setContentView(R.layout.activity_message_management);
 
         sendBtn = (Button) findViewById(R.id.btnSendSMS);
-        txtphoneNo = (EditText) findViewById(R.id.editText);
-        txtMessage = (EditText) findViewById(R.id.editText2);
+        txtphoneNo = (EditText) findViewById(R.id.recipientNumber);
+        txtMessage = (EditText) findViewById(R.id.textDraft);
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

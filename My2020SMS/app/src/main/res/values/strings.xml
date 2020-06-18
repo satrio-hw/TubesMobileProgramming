@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">My 2020 SMS</string>
+    <string name="txtbtnSaveDraft"><![CDATA[Save Draft & Reciepient]]></string>
 </resources>

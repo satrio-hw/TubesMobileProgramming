@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -20,21 +20,25 @@
         android:textColor="#fff"
         android:textSize="30dp" />
 
+    <!-- Send Buttton START-->
     <Button
         android:id="@+id/btnSendSMS"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/title"
         android:layout_marginTop="63dp"
         android:background="@drawable/button_bg_round"
+        android:clickable="true"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:text="send S.O.S"
+        android:text="S.O.S"
         android:textColor="#fff"
-        android:textSize="50dp" />
+        android:textSize="50dp"/>
+    <!-- Send Buttton END-->
 
+    <!-- Draft overview START-->
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/draftText"
         android:layout_width="252dp"
         android:layout_height="78dp"
         android:layout_below="@+id/btnSendSMS"
@@ -44,33 +48,66 @@
         android:layout_centerHorizontal="true"
         android:textColor="#ffdede"
         android:textSize="20dp" />
+    <!-- Draft overview END-->
+
+    <!-- Icon message Setting START-->
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/draftText"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginRight="90dp"
+        android:src="@drawable/ic_message_setting" />
 
     <Button
         android:id="@+id/btnMessageSetting"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/draftText"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="23dp"
         android:layout_marginRight="90dp"
-        android:background="@drawable/ic_message_setting"
-        android:gravity="center"
-        android:textColor="#fff"
-        android:textSize="50dp" />
+        android:background="@drawable/ic_edit_draft"/>
+    <!-- Icon message Setting END-->
+
+    <!-- Icon Inbox START-->
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/draftText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="23dp"
+        android:src="@drawable/ic_message_inbox" />
 
     <Button
         android:id="@+id/btnInbox"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/draftText"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="90dp"
         android:layout_marginTop="23dp"
-        android:background="@drawable/ic_message_inbox"
+        android:background="@drawable/ic_inbox"
+        android:gravity="center"/>
+    <!-- Icon Inbox END-->
+
+
+    <TextView
+        android:id="@+id/uaitext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
         android:gravity="center"
+        android:text="Universitas Al Azahar Indonesia"
         android:textColor="#fff"
-        android:textSize="50dp" />
+        android:textSize="15dp" />
 
 </RelativeLayout>
