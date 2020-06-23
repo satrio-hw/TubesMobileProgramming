@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MessageManagement"
+    tools:context=".DraftManagement"
     android:background="@color/colorBgMy2020SMS">
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_marginTop="41dp"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="Draft Manegement"
+        android:text="New Draft"
         android:textColor="#fff"
         android:textSize="30dp" />
 
@@ -73,7 +73,7 @@
 
     <!-- Save Button START-->
     <Button
-        android:id="@+id/btnSendSMS"
+        android:id="@+id/btnSaveDraft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textDraft"
@@ -85,7 +85,7 @@
         android:backgroundTint="@android:color/holo_blue_light" />
     <!-- Save Button END-->
 
-    <!-- Delete Button START-->
+    <!-- Delete Button START
     <Button
         android:id="@+id/btnDeleteDraft"
         android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
         android:layout_marginTop="50dp"
         android:text="Delete Draft"
         android:backgroundTint="@android:color/holo_red_light"/>
-    <!-- Delete Button START-->
+     Delete Button START-->
 
     <TextView
         android:id="@+id/uaitext"

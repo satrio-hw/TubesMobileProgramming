@@ -6,11 +6,14 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.os.Handler;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.Menu;
@@ -32,7 +35,7 @@ public class MainActivity extends Activity {
         (findViewById(R.id.btnMessageSetting)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MessageManagement.class);
+                Intent intent = new Intent(MainActivity.this, DraftList.class);
                 MainActivity.this.startActivity(intent);
             }
         });
@@ -46,4 +49,23 @@ public class MainActivity extends Activity {
         });
     }
 
+    boolean doubleBackToExitPressedOnce = false;
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            finishAffinity();
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
+    }
 }
