@@ -15,6 +15,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public static final String UID ="_id";
     public static final String RECIEVER = "reciever";
     public static final String BODY = "body";
+    public static final String STATUS = "status";
+    public static final String SELECTED = "selected";
 
     public  SQLiteHelper(@Nullable Context context){
         super(context, SQLiteHelper.DATABASE_NAME, null, SQLiteHelper.DATABASE_VERSION);
@@ -24,6 +26,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase){
         sqLiteDatabase.execSQL("CREATE TABLE "+TABLE_NAME+"("+
                 UID+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                STATUS+" VARCHAR(255),"+
+                SELECTED+" VARCHAR(255),"+
                 RECIEVER+" VARCHAR(255),"+
                 BODY+" VARCHAR(500));");
     }

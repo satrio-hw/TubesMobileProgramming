@@ -18,9 +18,13 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="List Drafts"
-        android:textColor="#fff"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold"
+        android:background="@android:color/holo_blue_dark"
+        android:textColor="#000"
         android:textSize="30dp" />
     <ListView
+        android:layout_marginTop="10dp"
         android:id="@+id/draft_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

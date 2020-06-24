@@ -5,18 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DraftManagement"
-    android:background="@color/colorBgMy2020SMS">
+    android:background="@color/colorBgMy2020SMS"
+    android:id="@+id/draft_management_layout">
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="41dp"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="New Draft"
-        android:textColor="#fff"
+        android:text="Draft"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold"
+        android:textColor="#131313"
+        android:background="@android:color/holo_blue_dark"
         android:textSize="30dp" />
 
     <ImageView
@@ -57,13 +60,24 @@
         android:backgroundTint="@android:color/holo_blue_bright"/>
     <!-- Recipient Number END-->
 
+    <!-- Selected Checkbox START-->
+    <CheckBox
+        android:id="@+id/checkSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recipientNumber"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffff"
+        android:text="Mark this draft to autosend at push SOS button" />
+    <!-- Selected Checkbox END-->
+
     <!-- Text Body START-->
     <EditText
         android:id="@+id/textDraft"
         android:layout_width="350dp"
         android:textColor="#fff"
         android:layout_height="200dp"
-        android:layout_below="@+id/recipientNumber"
+        android:layout_below="@+id/checkSelected"
         android:layout_centerHorizontal="true"
         android:hint="Enter Text to save"
         android:textColorHint="#9A9A9A"
@@ -85,17 +99,17 @@
         android:backgroundTint="@android:color/holo_blue_light" />
     <!-- Save Button END-->
 
-    <!-- Delete Button START
+    <!-- Delete Button START-->
     <Button
-        android:id="@+id/btnDeleteDraft"
+        android:id="@+id/btnBackDeleteDraft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textDraft"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
-        android:text="Delete Draft"
-        android:backgroundTint="@android:color/holo_red_light"/>
-     Delete Button START-->
+        android:text=""
+        android:backgroundTint="@android:color/holo_red_light" />
+    <!-- Delete Button START-->
 
     <TextView
         android:id="@+id/uaitext"
@@ -108,6 +122,8 @@
         android:text="Universitas Al Azahar Indonesia @2020"
         android:textColor="#fff"
         android:textSize="15dp" />
+
+
 
 
 </RelativeLayout>
