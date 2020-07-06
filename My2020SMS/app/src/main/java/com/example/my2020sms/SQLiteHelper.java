@@ -14,6 +14,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME ="draft";
     public static final String UID ="_id";
     public static final String RECIEVER = "reciever";
+    public static final String RECNAME = "rec_name";
     public static final String BODY = "body";
     public static final String STATUS = "status";
     public static final String SELECTED = "selected";
@@ -29,6 +30,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 STATUS+" VARCHAR(255),"+
                 SELECTED+" VARCHAR(255),"+
                 RECIEVER+" VARCHAR(255),"+
+                RECNAME+" VARCHAR(255),"+
                 BODY+" VARCHAR(500));");
     }
 

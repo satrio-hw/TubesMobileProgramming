@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#95454475">
+        android:background="#956C6B8E">
 
         <TextView
             android:id="@+id/recipientNumber"
@@ -28,11 +28,20 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/displayedName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recipientNumber"
+            android:textColor="#ffff"
+            android:textStyle="italic"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
             android:id="@+id/textBody"
             android:layout_width="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/recipientNumber"
+            android:layout_below="@+id/displayedName"
             android:text="TextView"
             android:textColor="#D4CEF4"
             android:layout_marginLeft="10dp"/>
@@ -46,8 +55,9 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginEnd="19dp"
-            android:text="sended : 22-08-2020 08:55:32"
+            android:text="delivered : 22-08-2020 08:55:32"
             android:textSize="12dp"
+            android:background="#9FFFFFFF"
             android:textColor="#F44848" />
 
         <ImageView

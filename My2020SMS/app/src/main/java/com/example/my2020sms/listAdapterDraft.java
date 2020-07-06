@@ -12,15 +12,17 @@ import android.widget.TextView;
 public class listAdapterDraft extends ArrayAdapter<String> {
     private final Activity context;
     private final String[] reciever;
+    private final String[] recname;
     private final String[] body;
     private final String[] selected;
     private final String[] status;
 
-    public listAdapterDraft(Activity context, String[] reciever, String[] body, String[] selected, String[] status) {
-        super(context, R.layout.inbox_row, reciever);
+    public listAdapterDraft(Activity context, String[] recname, String[] reciever, String[] body, String[] selected, String[] status) {
+        super(context, R.layout.draft_row, reciever);
         // TODO Auto-generated constructor stub
 
         this.context=context;
+        this.recname=recname;
         this.reciever=reciever;
         this.body=body;
         this.selected=selected;
@@ -35,11 +37,13 @@ public class listAdapterDraft extends ArrayAdapter<String> {
         TextView recieverText = (TextView) rowView.findViewById(R.id.recipientNumber);
         TextView statusText = (TextView) rowView.findViewById(R.id.sendStatus);
         TextView bodyText = (TextView) rowView.findViewById(R.id.textBody);
+        TextView nameText = (TextView) rowView.findViewById(R.id.displayedName);
         ImageView selectedIcon = (ImageView) rowView.findViewById(R.id.selectedIcon);
 
         recieverText.setText(reciever[position]);
         statusText.setText(status[position]);
         bodyText.setText(body[position]);
+        nameText.setText(recname[position]);
 
         if(selected[position]!=null){
             selectedIcon.setImageResource(R.drawable.ic_check_circle);

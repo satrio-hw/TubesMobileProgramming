@@ -34,11 +34,13 @@ public class Inbox extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inbox);
+        Log.i("LOG_TAG array :","Inbox");
         requestPermissions();
-        viewContact();
+        viewinbox();
     }
 
-    public void  viewContact(){
+    public void  viewinbox(){
+        Log.i("LOG_TAG array :","viewInbox");
         List<List> p = getModelSms();
         String[] maintitle = new String[p.get(0).size()];
         for (int j = 0; j < p.get(0).size(); j++) {
@@ -85,6 +87,7 @@ public class Inbox extends AppCompatActivity {
     }
 
     public List<List> getModelSms(){
+        Log.i("LOG_TAG array :","getModelSms");
 
         // ArrayList<String> items_inbox = new ArrayList<String>();
         ArrayList<String> items_inbox_sender = new ArrayList<String>();
@@ -107,9 +110,11 @@ public class Inbox extends AppCompatActivity {
                 String strbody = cur.getString(index_Body);
                 int longDate = cur.getType(index_Date);
                 int int_Type = cur.getInt(index_Type);
+                String tocompare = "[MY2020SMS]";
 
-
-                if(strbody.compareTo("[MY2020SMS]")==0) {
+                //Log.i("LOG_TAG :","SMS Inbox Body : "+strbody);
+                //Log.i("LOG_TAG :","SMS Inbox Body(bool) : "+strbody.regionMatches(0, tocompare, 0, 10));
+                if(strbody.regionMatches(0, tocompare, 0, 10)) {
                     items_inbox_sender.add(strAddress);
                     items_inbox_stat.add(statRead);
                     items_inbox_body.add(strbody);

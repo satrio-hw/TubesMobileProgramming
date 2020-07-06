@@ -27,8 +27,10 @@ public class DraftList extends AppCompatActivity {
 
     public static String id_draft;
     public static String mode;
+    public static String add_mode;
     public static String draftRowBody;
     public static String draftRowRecipient;
+    public static String draftRowRecipientName;
     public static String draftRowStatus;
     public static String draftRowSelected;
 
@@ -42,6 +44,7 @@ public class DraftList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mode = "new";
+                add_mode= null;
                 Intent intent = new Intent(DraftList.this, DraftManagement.class);
                 DraftList.this.startActivity(intent);
             }
@@ -54,10 +57,11 @@ public class DraftList extends AppCompatActivity {
 
         // READ
         Cursor c = sqdb.query(SQLiteHelper.TABLE_NAME,
-                new  String[]{SQLiteHelper.UID, SQLiteHelper.RECIEVER, SQLiteHelper.BODY, SQLiteHelper.SELECTED, SQLiteHelper.STATUS},
+                new  String[]{SQLiteHelper.UID, SQLiteHelper.RECIEVER,SQLiteHelper.RECNAME, SQLiteHelper.BODY, SQLiteHelper.SELECTED, SQLiteHelper.STATUS},
                 null,null,null,null,null);
 
         final String[] reciever = new String[c.getCount()];
+        final String[] nametodisplay = new String[c.getCount()];
         final String[] body = new String[c.getCount()];
         final String[] status = new  String[c.getCount()];
         final String[] selected = new String[c.getCount()];
@@ -65,16 +69,19 @@ public class DraftList extends AppCompatActivity {
         int j = 0;
         while (c.moveToNext()){
             id[j] = c.getInt(c.getColumnIndex(SQLiteHelper.UID));
+            nametodisplay[j] = c.getString(c.getColumnIndex(SQLiteHelper.RECNAME));
             reciever[j] = c.getString(c.getColumnIndex(SQLiteHelper.RECIEVER));
             body[j] = c.getString(c.getColumnIndex(SQLiteHelper.BODY));
             status[j] = c.getString(c.getColumnIndex(SQLiteHelper.STATUS));
             selected[j] = c.getString(c.getColumnIndex(SQLiteHelper.SELECTED));
 
+            Log.i("LOG_TAG","RECIPIENT NAME = "+c.getString(c.getColumnIndex(SQLiteHelper.RECNAME)));
+
             Log.i("LOG_TAG","ID="+id[j]+" --> RECIEVER: "+reciever[j]+" BODY:"+body[j]+" STATUS:"+status[j]+" SELECTED:"+c.getString(c.getColumnIndex(SQLiteHelper.SELECTED)));
             j++;
         }
 
-        listAdapterDraft adapter = new listAdapterDraft(this, reciever,body,selected,status);
+        listAdapterDraft adapter = new listAdapterDraft(this,nametodisplay, reciever,body,selected,status);
 
         ListView listView = (ListView) findViewById(R.id.draft_list);
         listView.setAdapter(adapter);
@@ -86,9 +93,11 @@ public class DraftList extends AppCompatActivity {
                 id_draft = Integer.toString(id[i]);
                 draftRowBody = body[i];
                 draftRowRecipient = reciever[i];
+                draftRowRecipientName = nametodisplay[i];
                 draftRowSelected = selected[i];
                 draftRowStatus = status[i];
                 mode = "edit";
+                add_mode= null;
                 Intent intent = new Intent(DraftList.this, DraftManagement.class);
                 DraftList.this.startActivity(intent);
             }

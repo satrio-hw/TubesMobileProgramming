@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Single List Item Design -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#956C6B8E">
+
+        <TextView
+            android:id="@+id/recipientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:padding="2dp"
+            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/recipientPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recipientName"
+            android:text="TextView"
+            android:textColor="#D4CEF4"
+            android:layout_marginLeft="10dp"/>
+
+
+
+    </RelativeLayout>
+</LinearLayout>

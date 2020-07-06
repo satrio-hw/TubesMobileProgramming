@@ -60,12 +60,23 @@
         android:backgroundTint="@android:color/holo_blue_bright"/>
     <!-- Recipient Number END-->
 
+    <!-- Recipient Name START-->
+    <TextView
+        android:id="@+id/recipientName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recipientNumber"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textStyle="italic"
+        android:layout_centerHorizontal="true"/>
+    <!-- Recipient Name END-->
+
     <!-- Selected Checkbox START-->
     <CheckBox
         android:id="@+id/checkSelected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/recipientNumber"
+        android:layout_below="@+id/recipientName"
         android:layout_centerHorizontal="true"
         android:textColor="#ffff"
         android:text="Mark this draft to autosend at push SOS button" />

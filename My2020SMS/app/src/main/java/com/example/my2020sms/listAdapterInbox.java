@@ -1,6 +1,7 @@
 package com.example.my2020sms;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,7 @@ public class listAdapterInbox extends ArrayAdapter<String> {
         titleText.setText(maintitle[position]);
         imageView.setImageResource(imgid[position]);
         subtitleText.setText(subtitle[position]);
+        Log.i("LOG_TAG array :","Inbox Adapter");
 
         return rowView;
 
