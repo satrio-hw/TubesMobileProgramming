@@ -120,7 +120,17 @@ public class MainActivity extends Activity {
 
     protected void sendSMSMessage() {
         Log.i("LOG_TAG array :","IM HERE");
+        Log.i("LOG_TAG array :","IM HERE 1");
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                Manifest.permission.SEND_SMS)) {
+            Log.i("LOG_TAG array :","IM HERE 2");
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.SEND_SMS},
+                    MY_PERMISSIONS_REQUEST_SEND_SMS);
+        }
 
+        /*
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.SEND_SMS)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -136,6 +146,7 @@ public class MainActivity extends Activity {
         }else{
             Log.i("LOG_TAG array :","Something wrong");
         }
+         */
     }
 
     @Override

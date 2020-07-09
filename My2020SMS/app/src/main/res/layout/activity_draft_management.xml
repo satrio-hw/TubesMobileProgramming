@@ -130,7 +130,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="34dp"
         android:gravity="center"
-        android:text="Universitas Al Azahar Indonesia @2020"
+        android:text="Universitas Al Azhar Indonesia @2020"
         android:textColor="#fff"
         android:textSize="15dp" />
 

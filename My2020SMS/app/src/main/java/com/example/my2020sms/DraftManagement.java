@@ -17,6 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.Date;
+
 public class DraftManagement extends AppCompatActivity {
 
     private Button btnDeleteDraft;
@@ -34,9 +36,9 @@ public class DraftManagement extends AppCompatActivity {
         final DraftList get_value = new DraftList();
         final ContactList get_contact = new ContactList();
 
-        Log.i("LOG_TAG","ID Draft "+get_value.id_draft);
+        //Log.i("LOG_TAG","ID Draft "+get_value.id_draft);
 
-        Log.i("LOG_TAG","get contact : "+get_contact.rec_name+get_contact.rec_phonenumber);
+        //Log.i("LOG_TAG","get contact : "+get_contact.rec_name+get_contact.rec_phonenumber);
         (findViewById(R.id.btnContactPhone)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +55,7 @@ public class DraftManagement extends AppCompatActivity {
 
         // ------------------------------------------------------- Compose NEW DRAFT -------------------------------------------------------
         if(get_value.mode.compareTo("new")==0) {
-            Log.i("LOG_TAG","Draft new draft, mode:"+get_value.mode);
+            //Log.i("LOG_TAG","Draft new draft, mode:"+get_value.mode);
             Button backBtn = (findViewById(R.id.btnBackDeleteDraft));
 
             if(get_contact.rec_name!=null && get_contact.rec_phonenumber != null){
@@ -77,7 +79,7 @@ public class DraftManagement extends AppCompatActivity {
                     }else {
                         selectedVal[0] ="";
                     }
-                    Log.i("LOG_TAG","CheckBox = "+selectedVal[0]);
+                    //Log.i("LOG_TAG","CheckBox = "+selectedVal[0]);
                 }
             });
             // CheckBox Handling END
@@ -128,7 +130,7 @@ public class DraftManagement extends AppCompatActivity {
 
         // ------------------------------------------------- EDIT or DELETE existing draft -------------------------------------------------------
         if(get_value.mode.compareTo("edit")==0) {
-            Log.i("LOG_TAG","Draft edit, mode:"+get_value.mode);
+            //Log.i("LOG_TAG","Draft edit, mode:"+get_value.mode);
 
             Button deleteBtn = (findViewById(R.id.btnBackDeleteDraft));
 
@@ -138,11 +140,12 @@ public class DraftManagement extends AppCompatActivity {
             textReciever.setText(get_value.draftRowRecipient);
             textContactName.setText(get_value.draftRowRecipientName);
 
-
             if(get_contact.rec_name!=null && get_contact.rec_phonenumber != null && get_contact.from_contact != null){
                 textReciever.setText(get_contact.rec_phonenumber);
                 textContactName.setText("send to : "+get_contact.rec_name);
             }
+
+            final String numberComparison = ((EditText) findViewById(R.id.recipientNumber)).getText().toString();
 
             // CheckBox Handling
             final CheckBox checkboxSelected = (CheckBox)findViewById(R.id.checkSelected);
@@ -156,7 +159,7 @@ public class DraftManagement extends AppCompatActivity {
                     }else {
                         selectedVal[0] ="";
                     }
-                    Log.i("LOG_TAG","CheckBox = "+selectedVal[0]);
+                    //Log.i("LOG_TAG","CheckBox = "+selectedVal[0]);
                 }
             });
 
@@ -185,9 +188,19 @@ public class DraftManagement extends AppCompatActivity {
                     // UPDATE
                     ContentValues data_to_update = new ContentValues();
                     data_to_update.put(SQLiteHelper.RECIEVER, new_draft_recipient);
-                    if(new_recipient_name!=null){
+                    if(numberComparison.equals(new_draft_recipient)){
+                        Log.i("LOG_TAG","finalComparisonPhonNumber = "+numberComparison+" : newPhoneNumber = "+new_draft_recipient);
+                        Log.i("LOG_TAG","same Number");
                         data_to_update.put(SQLiteHelper.RECNAME, new_recipient_name);
+                    }else{
+                        Log.i("LOG_TAG","finalComparisonPhonNumber = "+numberComparison+" : newPhoneNumber = "+new_draft_recipient);
+                        Log.i("LOG_TAG","different Number");
+                        if(get_contact.from_contact == null){
+                            Log.i("LOG_TAG","Not from Contact");
+                            data_to_update.put(SQLiteHelper.RECNAME, "");
+                        }
                     }
+
                     data_to_update.put(SQLiteHelper.BODY, new_body_draft);
                     data_to_update.put(SQLiteHelper.STATUS,"");
                     data_to_update.put(SQLiteHelper.SELECTED, selectedVal[0]);
@@ -199,6 +212,7 @@ public class DraftManagement extends AppCompatActivity {
                     //restart saved variable
                     get_contact.rec_phonenumber=null;
                     get_contact.rec_name=null;
+                    get_contact.from_contact = null;
                     // Switch view
                     Intent intent = new Intent(DraftManagement.this, DraftList.class);
                     DraftManagement.this.startActivity(intent);

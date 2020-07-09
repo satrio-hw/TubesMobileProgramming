@@ -106,7 +106,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="34dp"
         android:gravity="center"
-        android:text="Universitas Al Azahar Indonesia"
+        android:text="Universitas Al Azhar Indonesia"
         android:textColor="#fff"
         android:textSize="15dp" />
 

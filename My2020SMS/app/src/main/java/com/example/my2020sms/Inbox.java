@@ -81,8 +81,6 @@ public class Inbox extends AppCompatActivity {
                         new String[]{Manifest.permission.READ_SMS},
                         MY_PERMISSION_REQUEST_READ_SMS);
             }
-        }else{
-
         }
     }
 
