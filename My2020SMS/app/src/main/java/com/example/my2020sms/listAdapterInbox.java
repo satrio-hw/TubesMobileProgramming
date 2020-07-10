@@ -1,3 +1,4 @@
+// MY2020SMS : R. Satrio Hariomurti Wicaksono (0102517023) ; Dyah Retno Palupi (0102517006)
 package com.example.my2020sms;
 
 import android.app.Activity;
